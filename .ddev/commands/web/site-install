@@ -15,3 +15,6 @@ drush site-install \
 
 # Enable modules
 drush pm:enable -y xbrew_render
+
+# Create an XB page.
+drush php:eval "\Drupal::service('entity_type.manager')->getStorage('xb_page')->create(['title' => 'Home', 'path' => ['alias' => '/home']])->save();"

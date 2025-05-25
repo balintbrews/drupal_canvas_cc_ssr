@@ -3,3 +3,5 @@ description: Server-side rendering for Experience Builder code components via an
 type: module
 core_version_requirement: ^10.4 || ^11.1
 php: 8.3
+dependencies:
+  - drupal:experience_builder

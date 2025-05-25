@@ -15,7 +15,8 @@
       }
   ],
   "require": {
-      "drupal/core": "^10.4 || ^11.1"
+      "drupal/core": "^10.4 || ^11.1",
+      "drupal/experience_builder": "^0.3.0-alpha1"
   },
   "require-dev": {
     "drush/drush": "^13.3"
