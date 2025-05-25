@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="xbrew_render">
+  <description>PHP CodeSniffer configuration for the xBrew Render module.</description>
+  <file>.</file>
+  <exclude-pattern>.ddev/*</exclude-pattern>
+  <exclude-pattern>vendor/*</exclude-pattern>
+  <exclude-pattern>web/*</exclude-pattern>
+  <arg name="extensions" value="php,module,inc,install,test,profile,theme,css,info,txt,md,yml"/>
+  <rule ref="Drupal"></rule>
+  <rule ref="DrupalPractice"></rule>
+</ruleset>

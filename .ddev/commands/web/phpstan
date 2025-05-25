@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Description: Run `PHPStan` analysis
+## Usage: phpstan [flags] [args]
+## Example: `ddev phpstan` or `ddev phpstan -n`
+## ExecRaw: true
+
+if ! command -v phpstan >/dev/null; then
+  echo "phpstan is not available. Please run `ddev composer-expand-install`."
+  exit 1
+fi
+
+phpstan analyse $DDEV_COMPOSER_ROOT "$@"

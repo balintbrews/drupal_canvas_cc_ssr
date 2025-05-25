@@ -1,0 +1,17 @@
+#!/bin/bash
+
+## Description: Install Drupal site for local development.
+## Aliases: si
+## Usage: site-install
+## Example: "ddev site-install"
+## ExecRaw: true
+
+cd "$DDEV_COMPOSER_ROOT" || exit
+
+# Install Drupal
+drush site-install \
+    --account-pass=admin \
+    --site-name="xBrew Render Sandbox"
+
+# Enable modules
+drush pm:enable -y xbrew_render

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+## Description: Symlink all root files/dirs into web/modules/contrib/xbrew_render
+## Usage: symlink-project
+## Example: "ddev symlink-project"
+## ExecRaw: true
+
+export _WEB_ROOT=$DDEV_DOCROOT
+export PROJECT_FILES=$(ls -A | grep -v -E "(web|vendor|\\.ddev)")
+
+cd "$DDEV_COMPOSER_ROOT" || exit
+curl -OL https://git.drupalcode.org/project/gitlab_templates/-/raw/default-ref/scripts/symlink_project.php
+
+php symlink_project.php xbrew_render modules/contrib
+rm -f symlink_project.php

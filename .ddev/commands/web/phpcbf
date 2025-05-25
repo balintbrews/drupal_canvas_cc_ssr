@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## Description: Run `phpcbf`: PHP Code Beautifier and Fixer
+## Aliases: phpcs-fix
+## Usage: phpcbf [flags] [args]
+## Example: `ddev phpcbf` or `ddev phpcbf -n`
+## ExecRaw: true
+
+if ! command -v phpcbf >/dev/null; then
+  echo "phpcbf is not available. Please run `ddev composer-expand-install`."
+  exit 1
+fi
+
+phpcbf -s --report-full --report-summary --report-source $DDEV_COMPOSER_ROOT "$@"

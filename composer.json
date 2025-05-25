@@ -1,0 +1,23 @@
+{
+  "name": "drupal/xbrew_render",
+  "description": "Server-side rendering for Experience Builder code components via an API.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://drupal.org/project/xbrew_render",
+  "support": {
+      "issues": "https://drupal.org/project/xbrew_render",
+      "source": "https://git.drupalcode.org/project/xbrew_render"
+  },
+  "repositories": [
+      {
+          "type": "composer",
+          "url": "https://packages.drupal.org/8"
+      }
+  ],
+  "require": {
+      "drupal/core": "^10.4 || ^11.1"
+  },
+  "require-dev": {
+    "drush/drush": "^13.3"
+  }
+}

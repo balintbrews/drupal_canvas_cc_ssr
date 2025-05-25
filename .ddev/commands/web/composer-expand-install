@@ -1,0 +1,25 @@
+#!/bin/bash
+
+## Description: Expand `composer.json` to a complete Drupal project for local development, then run `composer install`.
+## Usage: composer-expand-install
+## Example: "ddev composer-expand-install"
+## ExecRaw: true
+
+export _WEB_ROOT=$DDEV_DOCROOT
+export COMPOSER=composer.contrib.json
+
+cd "$DDEV_COMPOSER_ROOT" || exit
+curl -OL https://git.drupalcode.org/project/gitlab_templates/-/raw/default-ref/scripts/expand_composer_json.php
+
+php expand_composer_json.php xbrew_render
+rm -f expand_composer_json.php
+
+composer install
+rm -f composer.contrib.json composer.contrib.lock
+touch $DDEV_DOCROOT/core/.env
+
+# Remove files that were scaffolded by `drupal/core-composer-scaffold` when
+# running `composer install` on the expanded composer.json file.
+rm -f .editorconfig
+rm -f .gitattributes
+rm -rf recipes

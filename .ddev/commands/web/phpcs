@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Description: Run `phpcs`: PHP_CodeSniffer
+## Usage: phpcs [flags] [args]
+## Example: `ddev phpcs` or `ddev phpcs -n`
+## ExecRaw: true
+
+if ! command -v phpcs >/dev/null; then
+  echo "phpcs is not available. Please run `ddev composer-expand-install`."
+  exit 1
+fi
+
+phpcs -s $DDEV_COMPOSER_ROOT "$@"
