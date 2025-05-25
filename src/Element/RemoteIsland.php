@@ -7,6 +7,8 @@ namespace Drupal\xbrew_render\Element;
 use Drupal\Core\Render\Attribute\RenderElement;
 use Drupal\Core\Render\Element\RenderElementBase;
 use Drupal\experience_builder\Entity\JavaScriptComponent;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Provides a render element to replace XB's astro_island.
@@ -87,18 +89,38 @@ final class RemoteIsland extends RenderElementBase {
     $component = $component_entity->normalizeForClientSide()->values;
 
     $build = [
-      '#type' => 'inline_template',
-      '#template' => '<div style="border: 1px solid #ccc; padding: 10px;">
-        <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">xBrew Render: <code>{{ machine_name }}</code></p>
-        <pre style="font-size: 0.75em;line-height: 1.25;">{{ js_source }}</pre>
-      </div>',
-      '#context' => [
-        'machine_name' => $component['machineName'],
-        'js_source' => $component['source_code_js'],
-      ],
+      '#type' => 'markup',
+      '#markup' => static::fetchRenderedHtml($component['source_code_js']),
     ];
     $element['inline-template'] = $build;
     return $element;
+  }
+
+  /**
+   * Fetches rendered HTML from the remote render service.
+   *
+   * @param string $code
+   *   The JavaScript code to send.
+   *
+   * @return string
+   *   The rendered HTML or an error message.
+   */
+  private static function fetchRenderedHtml(string $code): string {
+    try {
+      $client = new Client();
+      // @todo Make the endpoint configurable.
+      $response = $client->post('http://host.docker.internal:3000/render', [
+        'json' => ['code' => $code],
+      ]);
+      $data = json_decode((string) $response->getBody(), TRUE);
+      if (!is_array($data) || !isset($data['html']) || !is_string($data['html'])) {
+        return 'Invalid response format from render service';
+      }
+      return $data['html'];
+    }
+    catch (GuzzleException $e) {
+      return sprintf('Error making request: %s', $e->getMessage());
+    }
   }
 
 }
