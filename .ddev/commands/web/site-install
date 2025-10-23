@@ -11,10 +11,10 @@ cd "$DDEV_COMPOSER_ROOT" || exit
 # Install Drupal
 drush site-install \
     --account-pass=admin \
-    --site-name="xBrew Render Sandbox"
+    --site-name="Canvas CC SSR Sandbox"
 
 # Enable modules
-drush pm:enable -y xbrew_render
+drush pm:enable -y canvas_cc_ssr
 
-# Create an XB page.
-drush php:eval "\Drupal::service('entity_type.manager')->getStorage('xb_page')->create(['title' => 'Home', 'path' => ['alias' => '/home']])->save();"
+# Create a Canvas page.
+# drush php:eval "\Drupal::service('entity_type.manager')->getStorage('canvas_page')->create(['title' => 'Home', 'path' => ['alias' => '/home']])->save();"

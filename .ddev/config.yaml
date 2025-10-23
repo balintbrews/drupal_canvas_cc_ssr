@@ -1,4 +1,4 @@
-name: xbrew-render
+name: canvas-cc-ssr
 type: drupal11
 docroot: web
 php_version: "8.3"

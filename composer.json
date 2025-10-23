@@ -1,12 +1,12 @@
 {
-  "name": "drupal/xbrew_render",
-  "description": "Server-side rendering for Experience Builder code components via an API.",
+  "name": "drupal/canvas_cc_ssr",
+  "description": "Server-side rendering for Canvas Code Components via an API.",
   "type": "drupal-module",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://drupal.org/project/xbrew_render",
+  "homepage": "https://drupal.org/project/canvas_cc_ssr",
   "support": {
-      "issues": "https://drupal.org/project/xbrew_render",
-      "source": "https://git.drupalcode.org/project/xbrew_render"
+      "issues": "https://drupal.org/project/canvas_cc_ssr",
+      "source": "https://git.drupalcode.org/project/canvas_cc_ssr"
   },
   "repositories": [
       {
@@ -15,8 +15,8 @@
       }
   ],
   "require": {
-      "drupal/core": "^10.4 || ^11.1",
-      "drupal/experience_builder": "^0.3.0-alpha1"
+      "drupal/core": "^11.3",
+      "drupal/canvas": "^1.0@rc"
   },
   "require-dev": {
     "drush/drush": "^13.3"

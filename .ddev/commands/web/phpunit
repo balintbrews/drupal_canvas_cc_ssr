@@ -10,4 +10,4 @@ if ! command -v phpunit >/dev/null; then
   exit 1
 fi
 
-phpunit --bootstrap $PWD/$DDEV_DOCROOT/core/tests/bootstrap.php $DDEV_DOCROOT/modules/custom/xbrew_render "$@"
+phpunit --bootstrap $PWD/$DDEV_DOCROOT/core/tests/bootstrap.php $DDEV_DOCROOT/modules/custom/canvas_cc_ssr "$@"

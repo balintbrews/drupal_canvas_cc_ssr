@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\xbrew_render\Element;
+namespace Drupal\canvas_cc_ssr\Element;
 
 use Drupal\Core\Render\Attribute\RenderElement;
 use Drupal\Core\Render\Element\RenderElementBase;
@@ -68,7 +68,7 @@ final class RemoteIsland extends RenderElementBase {
       return ['#plain_text' => \sprintf('The #name property must be a string, %s given', \get_debug_type($component_name))];
     }
 
-    // @todo XB: Pass machine name and JS source to the element.
+    // @todo Canvas: Pass machine name and JS source to the element.
     $query = \Drupal::entityQuery('js_component')
       ->condition('name', $component_name)
       ->accessCheck(TRUE);
@@ -85,7 +85,7 @@ final class RemoteIsland extends RenderElementBase {
       return ['#plain_text' => \sprintf('Failed to load JavaScriptComponent with ID: %s', $id)];
     }
 
-    // @todo XB: Add public method in JavaScriptComponent to get the JS source.
+    // @todo Canvas: Add public method in JavaScriptComponent to get the JS source.
     $component = $component_entity->normalizeForClientSide()->values;
 
     $build = [

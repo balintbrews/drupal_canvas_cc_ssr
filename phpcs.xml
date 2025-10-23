@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruleset name="xbrew_render">
-  <description>PHP CodeSniffer configuration for the xBrew Render module.</description>
+<ruleset name="canvas_cc_ssr">
+  <description>PHP CodeSniffer configuration for the Canvas CC SSR module.</description>
   <file>.</file>
   <exclude-pattern>.ddev/*</exclude-pattern>
   <exclude-pattern>vendor/*</exclude-pattern>

@@ -11,7 +11,7 @@ export COMPOSER=composer.contrib.json
 cd "$DDEV_COMPOSER_ROOT" || exit
 curl -OL https://git.drupalcode.org/project/gitlab_templates/-/raw/default-ref/scripts/expand_composer_json.php
 
-php expand_composer_json.php xbrew_render
+php expand_composer_json.php canvas_cc_ssr
 rm -f expand_composer_json.php
 
 composer install

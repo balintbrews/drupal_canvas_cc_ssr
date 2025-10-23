@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Drupal\xbrew_render;
+namespace Drupal\canvas_cc_ssr;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\DependencyInjection\ServiceProviderBase;
-use Drupal\xbrew_render\Element\RemoteIsland;
+use Drupal\canvas_cc_ssr\Element\RemoteIsland;
 
 /**
- * Service provider for xBrew Render.
+ * Service provider for Canvas CC SSR.
  */
-class XBrewRenderServiceProvider extends ServiceProviderBase {
+class CanvasCcSsrServiceProvider extends ServiceProviderBase {
 
   /**
    * {@inheritdoc}

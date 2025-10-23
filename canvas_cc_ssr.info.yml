@@ -1,0 +1,7 @@
+name: Canvas CC SSR
+description: Server-side rendering for Canvas Code Components via an API.
+type: module
+core_version_requirement: ^11.3
+php: 8.3
+dependencies:
+  - drupal:canvas
