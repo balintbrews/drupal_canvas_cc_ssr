@@ -1,5 +1,5 @@
 name: Canvas CC SSR
-description: Server-side rendering for Canvas Code Components via an API.
+description: Experimental server-side rendering for Drupal Canvas Code Components via an HTTP API.
 type: module
 core_version_requirement: ^11.3
 php: 8.3

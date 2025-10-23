@@ -1,6 +1,6 @@
 {
   "name": "drupal/canvas_cc_ssr",
-  "description": "Server-side rendering for Canvas Code Components via an API.",
+  "description": "Experimental Drupal module for server-side rendering Drupal Canvas Code Components via an HTTP API.",
   "type": "drupal-module",
   "license": "GPL-2.0-or-later",
   "homepage": "https://drupal.org/project/canvas_cc_ssr",
